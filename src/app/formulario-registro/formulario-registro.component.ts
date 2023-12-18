@@ -34,5 +34,16 @@ export class FormularioRegistroComponent implements OnInit{
   }
 
   
+  save(event:Event) {
+    event.preventDefault();
+    if(this.form.valid){
+      const value = this.form.value;
+      console.log(value);
+    }else{
+      this.form.markAllAsTouched();
+    }
+  }
+
+  
 
 }
