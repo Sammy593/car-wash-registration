@@ -14,6 +14,7 @@ export class FormularioRegistroComponent implements OnInit{
   constructor(private formBuilder:FormBuilder){
     this.buildForm();
   }
+
   ngOnInit(): void {
   }
 
@@ -34,6 +35,7 @@ export class FormularioRegistroComponent implements OnInit{
   }
 
   
+
   save(event:Event) {
     event.preventDefault();
     if(this.form.valid){
@@ -44,6 +46,5 @@ export class FormularioRegistroComponent implements OnInit{
     }
   }
 
-  
 
 }
