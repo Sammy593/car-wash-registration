@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { homeModule } from './home/home.module';
 import { adminModule } from './admin/admin.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     
     AppRoutingModule,
 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+      FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

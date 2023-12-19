@@ -6,11 +6,11 @@ import { RegistradosComponent } from './pages/registrados/registrados.component'
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'admin',
     component: LayoutComponent,
     children: [
       {
-        path: 'pages/dashboard_4',
+        path: 'pages/dashboard',
         component: DashboardComponent,
       },
       {

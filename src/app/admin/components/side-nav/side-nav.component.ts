@@ -1,12 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import {
+  faDashboard,
+  faLocation
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-side-nav',
-  standalone: true,
-  imports: [],
   templateUrl: './side-nav.component.html',
-  styleUrl: './side-nav.component.scss'
+  styleUrls: ['./side-nav.component.scss']
 })
-export class SideNavComponent {
+export class SideNavComponent implements OnInit{
+  faDashboard = faDashboard;
+  faLocation = faLocation;
 
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 }

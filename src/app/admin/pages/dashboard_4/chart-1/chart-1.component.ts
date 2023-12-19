@@ -1,12 +1,21 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import {
+  faCar,
+  faRegistered,
+  faCalculator
+} from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-chart-1',
-  standalone: true,
-  imports: [],
   templateUrl: './chart-1.component.html',
-  styleUrl: './chart-1.component.scss'
+  styleUrls: ['./chart-1.component.scss']
 })
-export class Chart1Component {
+export class Chart1Component implements OnInit {
+  faCar = faCar;
+  faRegistered = faRegistered;
+  faCalculator = faCalculator;
 
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 }
