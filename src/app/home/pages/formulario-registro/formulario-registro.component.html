@@ -1,6 +1,7 @@
+
 <form [formGroup]="form" (ngSubmit)="save($event)" class="form-container">
 
-    <h1 class="form-title">Lavandería "El Pelado Samuel"</h1>
+    <h1 class="form-title">CarWash "El Pelado Samuel"</h1>
   
     <div class="form-field">
       <label for="name">Nombre del cliente:</label>
@@ -68,8 +69,8 @@
     </div>
   
     <div class="form-field">
-      <label for="mecaninco">Empleado a cargo:</label>
-      <select formControlName="mecaninco" id="mecaninco">
+      <label for="empleado">Empleado a cargo:</label>
+      <select formControlName="empleado" id="empleado">
         <option value="1">Joan Olalla</option>
         <option value="2">Raymond Zambrano</option>
         <option value="3">Jhon Davila</option>
@@ -77,8 +78,8 @@
         <option value="5">Samuel Borja</option>
         <option value="6">Jhanira Macas</option>
       </select>
-      <div *ngIf="form.get('mecaninco')?.errors && form.get('mecaninco')?.touched">
-        <small *ngIf="form.get('mecaninco')?.hasError('required')">Es un campo requerido</small>
+      <div *ngIf="form.get('empleado')?.errors && form.get('empleado')?.touched">
+        <small *ngIf="form.get('empleado')?.hasError('required')">Es un campo requerido</small>
       </div>
     </div>
   

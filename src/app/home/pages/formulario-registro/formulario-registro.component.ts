@@ -28,7 +28,7 @@ export class FormularioRegistroComponent implements OnInit{
       modelo: new FormControl('', [Validators.required]),
       date: new FormControl('', [Validators.required]),
       horaIngreso: new FormControl('', [Validators.required, Validators.pattern("^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$")]),
-      mecaninco: new FormControl('', [Validators.required]),
+      empleado: new FormControl('', [Validators.required]),
       tip_lavado: new FormControl('', Validators.required)
     })
   }
