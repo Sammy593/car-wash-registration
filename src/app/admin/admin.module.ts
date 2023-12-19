@@ -14,6 +14,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MainComponent } from './pages/dashboard_4/main/main.component';
 import { Chart1Component } from './pages/dashboard_4/chart-1/chart-1.component';
 import { Chart2Component } from './pages/dashboard_4/chart-2/chart-2.component';
+import { Chart3Component } from './pages/dashboard_4/chart-3/chart-3.component';
+import { Chart4Component } from './pages/dashboard_4/chart-4/chart-4.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { Chart2Component } from './pages/dashboard_4/chart-2/chart-2.component';
     SideNavComponent,
     MainComponent,
     Chart1Component,
-    Chart2Component
+    Chart2Component,
+    Chart3Component,
+    Chart4Component
   ],
   imports: [
     BrowserModule,
