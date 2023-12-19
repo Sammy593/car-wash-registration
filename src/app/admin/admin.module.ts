@@ -3,7 +3,7 @@ import { DashboardComponent } from './pages/dashboard_4/dashboard.component';
 import { RegistradosComponent } from './pages/registrados/registrados.component';
 import { LayoutComponent } from './components/layout/layout.component';
 
-import { QrgeneratorRoutingModule } from './qrgenerator-routing.module';
+import { QrgeneratorRoutingModule } from './admin-routing.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,6 @@ import { QrgeneratorRoutingModule } from './qrgenerator-routing.module';
   ],
   imports: [
     QrgeneratorRoutingModule
-  ],
-  exports: [QrgeneratorRoutingModule],
+  ]
 })
 export class adminModule {}

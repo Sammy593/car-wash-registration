@@ -10,11 +10,11 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'admin/dashboard_4',
+        path: 'pages/dashboard_4',
         component: DashboardComponent,
       },
       {
-        path: 'admin/registrados',
+        path: 'pages/registrados',
         component: RegistradosComponent,
       }
     ],
