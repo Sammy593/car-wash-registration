@@ -1,137 +1,100 @@
+<form [formGroup]="form" (ngSubmit)="save($event)" class="form-container">
 
-<form [formGroup]="form" (ngSubmit)="save($event)">
-
-    <div>Mecánia "El Pelado Samuel"</div>
-    <p>
-        Nombre del cliente: <br>
-        <input type="text" formControlName="name">
-    </p>
-
-    <div *ngIf="form.get('name')?.errors && form.get('name')?.touched">
-        <small *ngIf="form.get('name')?.hasError('required')">
-            Es un campo requerido
-        </small>
+    <h1 class="form-title">Lavandería "El Pelado Samuel"</h1>
+  
+    <div class="form-field">
+      <label for="name">Nombre del cliente:</label>
+      <input type="text" formControlName="name" id="name">
+      <div *ngIf="form.get('name')?.errors && form.get('name')?.touched">
+        <small *ngIf="form.get('name')?.hasError('required')">Es un campo requerido</small>
+      </div>
     </div>
-
-    <p>
-        cedula: <br>
-        <input type="text" formControlName="dni">
-    </p>
-
-    <div *ngIf="form.get('dni')?.errors && form.get('dni')?.touched">
-        <small *ngIf="form.get('dni')?.hasError('required')">
-            Es un campo requerido
-        </small>
+  
+    <div class="form-field">
+      <label for="dni">Cédula:</label>
+      <input type="text" formControlName="dni" id="dni">
+      <div *ngIf="form.get('dni')?.errors && form.get('dni')?.touched">
+        <small *ngIf="form.get('dni')?.hasError('required')">Es un campo requerido</small>
+      </div>
     </div>
-
-    <p>
-        Dirección: <br>
-        <input type="text" formControlName="direccion">
-    </p>
-
-    <div *ngIf="form.get('direccion')?.errors && form.get('direccion')?.touched">
-        <small *ngIf="form.get('direccion')?.hasError('required')">
-            Es un campo requerido
-        </small>
+  
+    <div class="form-field">
+      <label for="direccion">Dirección:</label>
+      <input type="text" formControlName="direccion" id="direccion">
+      <div *ngIf="form.get('direccion')?.errors && form.get('direccion')?.touched">
+        <small *ngIf="form.get('direccion')?.hasError('required')">Es un campo requerido</small>
+      </div>
     </div>
-
-    <p>
-        Email: <br>
-        <input type="email" formControlName="email">
-    </p>
-
-    <div *ngIf="form.get('email')?.errors && form.get('email')?.touched">
-        <small *ngIf="form.get('email')?.hasError('required')">
-            Es un campo requerido
-        </small>
-        <small *ngIf="form.get('email')?.hasError('email')">
-            Ingrese una dirección de correo electrónico válida
-        </small>
+  
+    <div class="form-field">
+      <label for="email">Email:</label>
+      <input type="email" formControlName="email" id="email">
+      <div *ngIf="form.get('email')?.errors && form.get('email')?.touched">
+        <small *ngIf="form.get('email')?.hasError('required')">Es un campo requerido</small>
+        <small *ngIf="form.get('email')?.hasError('email')">Ingrese una dirección de correo electrónico válida</small>
+      </div>
     </div>
-    
-
-    <p>
-        Marca de Vehículo: <br>
-        <input type="text" formControlName="marca">
-    </p>
-
-    <div *ngIf="form.get('marca')?.errors && form.get('marca')?.touched">
-        <small *ngIf="form.get('marca')?.hasError('required')">
-            Es un campo requerido
-        </small>
+  
+    <div class="form-field">
+      <label for="marca">Marca de Vehículo:</label>
+      <input type="text" formControlName="marca" id="marca">
+      <div *ngIf="form.get('marca')?.errors && form.get('marca')?.touched">
+        <small *ngIf="form.get('marca')?.hasError('required')">Es un campo requerido</small>
+      </div>
     </div>
-
-    <p>
-        Modelo de Vehículo: <br>
-        <input type="text" formControlName="modelo">
-    </p>
-
-    <div *ngIf="form.get('modelo')?.errors && form.get('modelo')?.touched">
-        <small *ngIf="form.get('modelo')?.hasError('required')">
-            Es un campo requerido
-        </small>
+  
+    <div class="form-field">
+      <label for="modelo">Modelo de Vehículo:</label>
+      <input type="text" formControlName="modelo" id="modelo">
+      <div *ngIf="form.get('modelo')?.errors && form.get('modelo')?.touched">
+        <small *ngIf="form.get('modelo')?.hasError('required')">Es un campo requerido</small>
+      </div>
     </div>
-
-
-    <p>
-        Fecha de ingreso de vehículo: <br>
-        <input type="date" formControlName="date">
-    </p>
-
-    <div *ngIf="form.get('date')?.errors && form.get('date')?.touched">
-        <small *ngIf="form.get('date')?.hasError('required')">
-            Es un campo requerido
-        </small>
+  
+    <div class="form-field">
+      <label for="date">Fecha de ingreso de vehículo:</label>
+      <input type="date" formControlName="date" id="date">
+      <div *ngIf="form.get('date')?.errors && form.get('date')?.touched">
+        <small *ngIf="form.get('date')?.hasError('required')">Es un campo requerido</small>
+      </div>
     </div>
-
-    <p>
-        Hora de ingreso: <br>
-        <input type="time" formControlName="horaIngreso">
-    </p>
-    
-    <div *ngIf="form.get('horaIngreso')?.errors && form.get('horaIngreso')?.touched">
-        <small *ngIf="form.get('horaIngreso')?.hasError('required')">
-            Es un campo requerido
-        </small>
+  
+    <div class="form-field">
+      <label for="horaIngreso">Hora de ingreso:</label>
+      <input type="time" formControlName="horaIngreso" id="horaIngreso">
+      <div *ngIf="form.get('horaIngreso')?.errors && form.get('horaIngreso')?.touched">
+        <small *ngIf="form.get('horaIngreso')?.hasError('required')">Es un campo requerido</small>
+      </div>
     </div>
-    
-    
-
-    <p>
-        Empleado a cargo: <br>
-        <select formControlName="mecaninco">
-            <option value="1">Joan Olalla</option>
-            <option value="2">Raymond Zambrano</option>
-            <option value="3">Jhon Davila</option>
-            <option value="4">Vinicio Ledesma</option>
-            <option value="5">Samuel Borja</option>
-            <option value="6">Jhanira Macas</option>
-        </select>
-    </p>
-
-    <div *ngIf="form.get('mecaninco')?.errors && form.get('mecaninco')?.touched">
-        <small *ngIf="form.get('mecaninco')?.hasError('required')">
-            Es un campo requerido
-        </small>
+  
+    <div class="form-field">
+      <label for="mecaninco">Empleado a cargo:</label>
+      <select formControlName="mecaninco" id="mecaninco">
+        <option value="1">Joan Olalla</option>
+        <option value="2">Raymond Zambrano</option>
+        <option value="3">Jhon Davila</option>
+        <option value="4">Vinicio Ledesma</option>
+        <option value="5">Samuel Borja</option>
+        <option value="6">Jhanira Macas</option>
+      </select>
+      <div *ngIf="form.get('mecaninco')?.errors && form.get('mecaninco')?.touched">
+        <small *ngIf="form.get('mecaninco')?.hasError('required')">Es un campo requerido</small>
+      </div>
     </div>
-
-    <p>
-        Tipo de lavado: <br>
-        <select formControlName="tip_lavado">
-            <option value="1">Regular</option>
-            <option value="2">Normal</option>
-            <option value="3">Premium</option>
-        </select>
-    </p>
-
-    <div *ngIf="form.get('tip_lavado')?.errors && form.get('tip_lavado')?.touched">
-        <small *ngIf="form.get('tip_lavado')?.hasError('required')">
-            Es un campo requerido
-        </small>
+  
+    <div class="form-field">
+      <label for="tip_lavado">Tipo de lavado:</label>
+      <select formControlName="tip_lavado" id="tip_lavado">
+        <option value="1">Regular</option>
+        <option value="2">Normal</option>
+        <option value="3">Premium</option>
+      </select>
+      <div *ngIf="form.get('tip_lavado')?.errors && form.get('tip_lavado')?.touched">
+        <small *ngIf="form.get('tip_lavado')?.hasError('required')">Es un campo requerido</small>
+      </div>
     </div>
-
-
-
-
+  
     <button type="submit">Guardar</button>
-</form>
+  
+  </form>
+  
