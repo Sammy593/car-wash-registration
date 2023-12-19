@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { homeModule } from './home/home.module';
 import { adminModule } from './admin/admin.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EnvioemailComponent } from './envioemail/envioemail.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EnvioemailComponent
   ],
   imports: [
     BrowserModule,
