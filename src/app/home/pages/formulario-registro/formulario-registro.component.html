@@ -95,16 +95,7 @@
         </small>
     </div>
     
-    <p>
-        Hora de salida: <br>
-        <input type="time" formControlName="horaSalida">
-    </p>
     
-    <div *ngIf="form.get('horaSalida')?.errors && form.get('horaSalida')?.touched">
-        <small *ngIf="form.get('horaSalida')?.hasError('required')">
-            Es un campo requerido
-        </small>
-    </div>
 
     <p>
         Empleado a cargo: <br>
