@@ -8,12 +8,10 @@ import { adminModule } from './admin/admin.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { EnvioemailComponent } from './envioemail/envioemail.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    EnvioemailComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
