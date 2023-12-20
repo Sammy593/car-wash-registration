@@ -4,7 +4,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-cargar-archivo',
   templateUrl: './cargar-archivo.component.html',
-  styleUrls: []
+  styleUrls: ['./cargar-archivo.component.scss']
 })
 export class CargarArchivoComponent {
   @Output() archivoCargado = new EventEmitter<File>();

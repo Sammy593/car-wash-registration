@@ -30,7 +30,27 @@
     border-bottom: 2px solid #009879;
 }
 
+tr{
+    color: rgb(70, 70, 70);
+}
+
 select {
     display: block;
     margin-bottom: 8px;
+  }
+
+  button{
+    border: #5e8f85 solid 1px;
+    border-radius: 20px;
+    padding: 5%;
+    width: 90%;
+    margin: auto;
+    background-color: #06dd79;
+    cursor: pointer;
+  }
+
+  button:hover{
+    background-color: #006d57;
+    color: white;
+    transition: all 0.4s;
   }

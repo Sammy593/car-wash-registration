@@ -4,7 +4,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-estrella',
   templateUrl: './estrella.component.html',
-  styleUrls: []
+  styleUrls: ['./estrella.component.scss']
 })
 export class EstrellaComponent {
   @Input() isFilled: boolean;

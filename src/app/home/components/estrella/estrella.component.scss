@@ -1,12 +1,27 @@
- 
-  span.filled {
-    color: #f8d825; 
-  }  span {
-    font-size: 24px;
-    cursor: pointer;
-    color: #726f55; 
-  }
+    span {
+      font-size: 45px;
+      cursor: pointer;
+      color: #726f55;
+    }
 
-  span.filled {
-    color: #f8d825; 
-  }
+    span.filled {
+      color: #f8d825;
+    }
+
+    button{
+      width: 90%;
+      margin: auto;
+      height: 30px;
+      border-radius: 20px;
+      margin-top: 10px;
+      border: none;
+      cursor: pointer;
+      background-color: #353001;
+      color: white;
+    }
+
+    .custom-file{
+      margin: 10px;
+      padding: 2%;
+      color: gray;
+    }

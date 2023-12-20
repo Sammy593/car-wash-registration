@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
 import { DashboardComponent } from './pages/dashboard_4/dashboard.component';
-import { RegistradosComponent } from './pages/registrados/registrados.component';
+//import { RegistradosComponent } from './pages/registrados/registrados.component';
+import { EnvioemailComponent } from './pages//envioemail/envioemail.component';
 
 const routes: Routes = [
   {
@@ -15,8 +16,8 @@ const routes: Routes = [
       },
       {
         path: 'pages/registrados',
-        component: RegistradosComponent,
-      }
+        component: EnvioemailComponent,
+      },
     ],
   },
 ];

@@ -1,13 +1,14 @@
 
 <form [formGroup]="form" (ngSubmit)="save($event)" class="form-container">
 
-    <h1 class="form-title">CarWash "El Pelado Samuel"</h1>
+    <h1 class="form-title">Solicita un servicio en Car Wash</h1>
   
     <div class="form-field">
       <label for="name">Nombre del cliente:</label>
       <input type="text" formControlName="name" id="name">
       <div *ngIf="form.get('name')?.errors && form.get('name')?.touched">
         <small *ngIf="form.get('name')?.hasError('required')">Es un campo requerido</small>
+        <small *ngIf="form.get('name')?.hasError('pattern')">Solo se permiten letras</small>
       </div>
     </div>
   
@@ -16,6 +17,9 @@
       <input type="text" formControlName="dni" id="dni">
       <div *ngIf="form.get('dni')?.errors && form.get('dni')?.touched">
         <small *ngIf="form.get('dni')?.hasError('required')">Es un campo requerido</small>
+        <small *ngIf="form.get('dni')?.hasError('pattern')">Solo se permiten numeros</small> <br>
+            <small *ngIf="form.get('dni')?.hasError('minlength') || form.get('dni')?.hasError('maxlength')">Cédula
+                inválida</small>
       </div>
     </div>
   

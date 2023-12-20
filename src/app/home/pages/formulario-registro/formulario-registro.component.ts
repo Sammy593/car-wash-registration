@@ -20,8 +20,8 @@ export class FormularioRegistroComponent implements OnInit{
 
   private buildForm(){
     this.form = this.formBuilder.group({
-      name: new FormControl('', [Validators.required]),
-      dni: new FormControl('', [Validators.required]),
+      name: new FormControl('', [Validators.required, Validators.pattern(/^[A-Za-z\s\xF1\xD1]+$/)]),
+      dni: new FormControl('', [Validators.required, Validators.pattern(/^([0-9])*$/), Validators.minLength(10), Validators.maxLength(10)]),
       direccion: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       marca: new FormControl('', [Validators.required]),
