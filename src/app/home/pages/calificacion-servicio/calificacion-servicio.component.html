@@ -1,0 +1,8 @@
+<h1>Calificación y Carga de Archivos</h1>
+<h6>La opción de cargar el comprobante aparecera despues que califiques!!</h6>
+<app-estrella
+ *ngFor="let star of stars; let i = index"
+ [isFilled]="star"
+ (estrellaClicked)="onStarClicked(i)" 
+ (archivoCargado)="onArchivoCargado($event)"
+></app-estrella>

@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent2 } from './components/layout/layout.component';
 
 import { FormularioRegistroComponent } from './pages/formulario-registro/formulario-registro.component';
+import { CalificacionServicioComponent } from './pages/calificacion-servicio/calificacion-servicio.component';
+
 
 const routes: Routes = [
   {
@@ -12,6 +14,10 @@ const routes: Routes = [
       {
         path: 'pages/formulario-registro',
         component: FormularioRegistroComponent,
+      },
+      {
+        path: 'pages/calificacion-servicio',
+        component: CalificacionServicioComponent,
       }
     ],
   },

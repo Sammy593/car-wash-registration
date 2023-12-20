@@ -1,0 +1,36 @@
+<!-- estrella.component.html -->
+<style>
+    span {
+      font-size: 24px;
+      cursor: pointer;
+      color: #ccc; /* Color de estrella no seleccionada */
+    }
+  
+    span.filled {
+      color: #f8d825; /* Color de estrella seleccionada */
+    }
+    
+  </style>
+  
+ 
+ 
+
+  
+  
+
+<!-- estrella.component.html -->
+
+<span (click)="onStarClick()" [ngClass]="{'filled': isFilled}">&#9733;</span>
+    
+<div *ngIf="cargaDocumentosMostrada">
+  <div style="clear: both;"></div> 
+  <app-cargar-archivo (archivoCargado)="onArchivoCargado($event)"></app-cargar-archivo>
+  <!-- Agrega el botón de enviar después de la carga del archivo -->
+  <button (click)="enviarCalificacion()">Enviar</button>
+</div>
+
+
+
+
+
+    
