@@ -1,8 +1,39 @@
-<h1>Calificación y Carga de Archivos</h1>
-<h6>La opción de cargar el comprobante aparecera despues que califiques!!</h6>
-<app-estrella
- *ngFor="let star of stars; let i = index"
- [isFilled]="star"
- (estrellaClicked)="onStarClicked(i)" 
- (archivoCargado)="onArchivoCargado($event)"
-></app-estrella>
+<style>
+    .titulo {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  
+    .subtitulo {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #888;
+      text-align: center;
+    }
+  
+    .contenedor-estrellas {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .envio-exitoso {
+      color: #4CAF50; /* Verde */
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+
+  <div class="contenedor-estrellas">
+    <h1 class="titulo">Calificación y Carga de Archivos</h1>
+    <h6 class="subtitulo">La opción de cargar el comprobante aparecerá después de que califiques.</h6>
+  
+    <app-estrella
+      *ngFor="let star of stars; let i = index"
+      [isFilled]="star"
+      (estrellaClicked)="onStarClicked(i)"
+      (archivoCargado)="onArchivoCargado($event)"
+    ></app-estrella>
+  
+    </div>
+  
