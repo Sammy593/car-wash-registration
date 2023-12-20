@@ -18,9 +18,8 @@ export class CalificacionServicioComponent {
     this.archivoSeleccionado = archivo;
     console.log('Archivo cargado:', archivo);
   }
-  
   enviarCalificacion(): void {
-    // Lógica para enviar la calificación y el comprobante
+    // enviar la calificación y el comprobante
     console.log('Calificación y comprobante enviados');
   }
 }
