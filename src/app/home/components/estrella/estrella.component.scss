@@ -1,11 +1,12 @@
-/* estrella.component.css */
-span {
+ 
+  span.filled {
+    color: #f8d825; 
+  }  span {
     font-size: 24px;
     cursor: pointer;
-    color: #ccc; /* Color de estrella no seleccionada */
+    color: #726f55; 
   }
-  
+
   span.filled {
-    color: #f8d825; /* Color de estrella seleccionada */
+    color: #f8d825; 
   }
-  
