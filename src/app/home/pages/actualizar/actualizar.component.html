@@ -1,0 +1,74 @@
+<div class="form-container">
+  <div class="form-title">Actualizar Registro</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div class="form-field">
+          <label for="nombreInput">Nombre y Apellido</label>
+          <input type="text" class="form-control" id="nombreInput" placeholder="Nombre Cliente" [(ngModel)]="nombre_cliente" required>
+          <small *ngIf="!nombre_cliente">El nombre es requerido</small>
+        </div>
+
+        <div class="form-field">
+          <label for="cedulaInput">Cédula</label>
+          <input type="text" class="form-control" id="cedulaInput" placeholder="Cédula" [(ngModel)]="cedula" required pattern="[0-9]{10}">
+          <small *ngIf="!cedula">La cédula es requerida</small>
+          <small *ngIf="cedula && cedula.length !== 10">La cédula debe tener exactamente 10 dígitos</small>
+        </div>
+
+        <div class="form-field">
+          <label for="direccionInput">Dirección</label>
+          <input type="text" class="form-control" id="direccionInput" placeholder="Dirección" [(ngModel)]="direccion" required>
+          <small *ngIf="!direccion">La dirección es requerida</small>
+        </div>
+
+        <div class="form-field">
+          <label for="emailInput">Correo</label>
+          <input type="text" class="form-control" id="emailInput" placeholder="Correo" [(ngModel)]="email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+          <small *ngIf="!email">El correo es requerido</small>
+          <small *ngIf="email && !validarCorreo(email)">Ingrese un correo electrónico válido</small>
+        </div>
+
+        <div class="form-field">
+          <label for="marcaInput">Marca Vehículo</label>
+          <input type="text" class="form-control" id="marcaInput" placeholder="Marca Vehículo" [(ngModel)]="marca_vehiculo" required>
+          <small *ngIf="!marca_vehiculo">La marca del vehículo es requerida</small>
+        </div>
+
+        <div class="form-field">
+          <label for="modeloInput">Modelo Vehículo</label>
+          <input type="text" class="form-control" id="modeloInput" placeholder="Modelo Vehículo" [(ngModel)]="modelo_vehiculo" required>
+          <small *ngIf="!modelo_vehiculo">El modelo del vehículo es requerido</small>
+        </div>
+
+        <div class="form-field">
+          <label for="fechaInput">Fecha Ingreso</label>
+          <input type="date" class="form-control" id="fechaInput" placeholder="Fecha Ingreso" [(ngModel)]="fecha_ingreso" required>
+          <small *ngIf="!fecha_ingreso">La fecha de ingreso es requerida</small>
+        </div>
+
+        <div class="form-field">
+          <label for="horaInput">Hora Ingreso</label>
+          <input type="time" class="form-control" id="horaInput" placeholder="Hora Ingreso" [(ngModel)]="hora_ingreso" required>
+          <small *ngIf="!hora_ingreso">La hora de ingreso es requerida</small>
+        </div>
+
+        <div class="form-field">
+          <label for="tipoLavadoInput">Tipo Lavado</label>
+          <select class="form-control" id="tipoLavadoInput" [(ngModel)]="tipo_lavado" required>
+            <option value="" disabled selected>Selecciona el tipo de lavado</option>
+            <option value="Económico">Económico ($5)</option>
+            <option value="Estándar">Estándar ($6.50)</option>
+            <option value="Premium">Premium ($12)</option>
+          </select>
+          <small *ngIf="!tipo_lavado">El tipo de lavado es requerido</small>
+        </div>
+
+        <div class="form-field" style="text-align: center;">
+          <button class="btn btn-primary" [disabled]="!formularioValido()" (click)="actualizarRegistro()">Actualizar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

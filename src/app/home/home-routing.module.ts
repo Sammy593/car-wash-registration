@@ -4,6 +4,7 @@ import { LayoutComponent2 } from './components/layout/layout.component';
 
 import { FormularioRegistroComponent } from './pages/formulario-registro/formulario-registro.component';
 import { CalificacionServicioComponent } from './pages/calificacion-servicio/calificacion-servicio.component';
+import {ActualizarComponent} from "./pages/actualizar/actualizar.component";
 
 
 const routes: Routes = [
@@ -18,6 +19,10 @@ const routes: Routes = [
       {
         path: 'pages/calificacion-servicio',
         component: CalificacionServicioComponent,
+      },
+      {
+        path: 'pages/actualizar',
+        component: ActualizarComponent,
       }
     ],
   },

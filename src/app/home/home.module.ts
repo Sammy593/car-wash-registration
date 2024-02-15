@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { FormularioRegistroComponent } from './pages/formulario-registro/formulario-registro.component';
 import { LayoutComponent2 } from './components/layout/layout.component';
@@ -13,6 +13,7 @@ import { CalificacionServicioComponent } from './pages/calificacion-servicio/cal
 import { CargarArchivoComponent } from './components/cargar-archivo/cargar-archivo.component';
 import { EstrellaComponent } from './components/estrella/estrella.component';
 import {NgxCaptchaModule} from "ngx-captcha";
+import { ActualizarComponent } from './pages/actualizar/actualizar.component';
 
 
 @NgModule({
@@ -21,13 +22,15 @@ import {NgxCaptchaModule} from "ngx-captcha";
     LayoutComponent2,
     CalificacionServicioComponent,
     CargarArchivoComponent,
-    EstrellaComponent
+    EstrellaComponent,
+    ActualizarComponent
   ],
   imports: [
     BrowserModule,
     QrgeneratorRoutingModule2,
     ReactiveFormsModule,
-    NgxCaptchaModule
+    NgxCaptchaModule,
+    FormsModule
   ]
 })
 export class homeModule {}
