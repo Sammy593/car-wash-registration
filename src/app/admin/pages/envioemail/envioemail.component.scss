@@ -40,12 +40,12 @@ select {
   }
 
   button{
-    border: #5e8f85 solid 1px;
+    border: #468c7d solid 1px;
     border-radius: 20px;
     padding: 5%;
     width: 90%;
     margin: auto;
-    background-color: #06dd79;
+    background-color: #5b7be8;
     cursor: pointer;
   }
 
@@ -54,3 +54,13 @@ select {
     color: white;
     transition: all 0.4s;
   }
+
+.green-btn {
+  background-color: #06dd79;
+  border-color: green;
+}
+
+.red-btn {
+  background-color: #b76868;
+  border-color: #b76868;
+}

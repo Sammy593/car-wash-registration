@@ -1,80 +1,32 @@
 <div class="container">
     <table class="content-table styled-table">
         <thead>
-            <tr>
-                <th>Fecha Ingreso</th>
-                <th>Nombre</th>
-                <th>Placa</th>
-                <th>Tipo de Servicio</th>
-                <th>Correo Electrónico</th>
-                <th>Total a pagar</th>
-                <th>Proceso terminado</th>
-            </tr>
+        <tr>
+          <th>Nombre y Apellido</th>
+          <th>Email</th>
+          <th>Marca de Vehículo</th>
+          <th>Fecha de Ingreso</th>
+          <th>Tipo de Lavado</th>
+          <th>Estado</th>
+          <th class="text-center">Acciones</th>
+        </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>12/12/2023</td>
-                <td>Sara</td>
-                <td>AA123</td>
-                <td>Lavado completo</td>
-                <td>Sara@sara.com</td>
-                <td>$25,00</td>
-                <td><button>Confirmar</button></td>
-            </tr>
-            <tr>
-                <td>12/12/2023</td>
-                <td>Sara</td>
-                <td>AA123</td>
-                <td>Lavado completo</td>
-                <td>Sara@sara.com</td>
-                <td>$25,00</td>
-                <td><button>Confirmar</button></td>
-            </tr>
-            <tr>
-                <td>12/12/2023</td>
-                <td>Sara</td>
-                <td>AA123</td>
-                <td>Lavado completo</td>
-                <td>Sara@sara.com</td>
-                <td>$25,00</td>
-                <td><button>Confirmar</button></td>
-            </tr>
-            <tr>
-                <td>12/12/2023</td>
-                <td>Sara</td>
-                <td>AA123</td>
-                <td>Lavado completo</td>
-                <td>Sara@sara.com</td>
-                <td>$25,00</td>
-                <td><button>Confirmar</button></td>
-            </tr>
-            <tr>
-                <td>12/12/2023</td>
-                <td>Sara</td>
-                <td>AA123</td>
-                <td>Lavado completo</td>
-                <td>Sara@sara.com</td>
-                <td>$25,00</td>
-                <td><button>Confirmar</button></td>
-            </tr>
-            <tr>
-                <td>12/12/2023</td>
-                <td>Sara</td>
-                <td>AA123</td>
-                <td>Lavado completo</td>
-                <td>Sara@sara.com</td>
-                <td>$25,00</td>
-                <td><button>Confirmar</button></td>
-            </tr>
-            <tr>
-                <td>12/12/2023</td>
-                <td>Sara</td>
-                <td>AA123</td>
-                <td>Lavado completo</td>
-                <td>Sara@sara.com</td>
-                <td>$25,00</td>
-                <td><button>Confirmar</button></td>
-            </tr>
+        <tr *ngFor="let registro of registros">
+          <td>{{ registro.nombre_cliente }}</td>
+          <td>{{ registro.email }}</td>
+          <td>{{ registro.marca_vehiculo }}</td>
+          <td>{{ registro.fecha_ingreso }}</td>
+          <td>{{ registro.tipo_lavado }}</td>
+          <td>{{ registro.estado }}</td>
+          <td>
+            <button class="btn btn-primary custom-btn" (click)="redirectToMostrarDetalle(registro._id)">Detalles</button>
+            <ng-container *ngIf="registro.estado === 'Pendiente'">
+              <button class="btn btn-primary custom-btn green-btn" (click)="impagoSolicitud(registro._id)">Cobrar</button>
+              <button class="btn btn-primary custom-btn red-btn" (click)="rechazarSolicitud(registro._id)">Rechazar</button>
+            </ng-container>
+          </td>
+        </tr>
         </tbody>
     </table>
 </div>

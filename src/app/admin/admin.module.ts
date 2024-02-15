@@ -16,6 +16,9 @@ import { Chart1Component } from './pages/dashboard_4/chart-1/chart-1.component';
 import { Chart2Component } from './pages/dashboard_4/chart-2/chart-2.component';
 import { Chart3Component } from './pages/dashboard_4/chart-3/chart-3.component';
 import { Chart4Component } from './pages/dashboard_4/chart-4/chart-4.component';
+import {FormsModule} from "@angular/forms";
+import { AceptadosComponent } from './pages/aceptados/aceptados.component';
+import { DetallesConfirmadosComponent } from './pages/detalles-confirmados/detalles-confirmados.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +31,16 @@ import { Chart4Component } from './pages/dashboard_4/chart-4/chart-4.component';
     Chart1Component,
     Chart2Component,
     Chart3Component,
-    Chart4Component
+    Chart4Component,
+    AceptadosComponent,
+    DetallesConfirmadosComponent
   ],
-  imports: [
-    BrowserModule,
-    QrgeneratorRoutingModule,
-    FontAwesomeModule,
-    ChartModule
-  ]
+    imports: [
+        BrowserModule,
+        QrgeneratorRoutingModule,
+        FontAwesomeModule,
+        ChartModule,
+        FormsModule
+    ]
 })
 export class adminModule {}

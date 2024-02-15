@@ -12,6 +12,7 @@ import { QrgeneratorRoutingModule2 } from './home-routing.module';
 import { CalificacionServicioComponent } from './pages/calificacion-servicio/calificacion-servicio.component';
 import { CargarArchivoComponent } from './components/cargar-archivo/cargar-archivo.component';
 import { EstrellaComponent } from './components/estrella/estrella.component';
+import {NgxCaptchaModule} from "ngx-captcha";
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { EstrellaComponent } from './components/estrella/estrella.component';
   imports: [
     BrowserModule,
     QrgeneratorRoutingModule2,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxCaptchaModule
   ]
 })
 export class homeModule {}

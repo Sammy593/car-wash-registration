@@ -5,20 +5,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { homeModule } from './home/home.module';
 import { adminModule } from './admin/admin.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {HttpClientModule} from "@angular/common/http";
+import {EnvioemailComponent} from "./admin/pages/envioemail/envioemail.component";
+import {NgxCaptchaModule} from "ngx-captcha";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EnvioemailComponent
   ],
   imports: [
     BrowserModule,
-    
+    HttpClientModule,
+    FormsModule,
+    NgxCaptchaModule,
+
     homeModule,
     adminModule,
-    
+
     AppRoutingModule,
 
     ReactiveFormsModule,

@@ -1,49 +1,82 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { debounceTime } from 'rxjs/operators';  
+import Swal from 'sweetalert2';
+import {CarwashService} from "../../../carwash.service";
+
 @Component({
   selector: 'app-formulario-registro',
   templateUrl: './formulario-registro.component.html',
   styleUrls: ['./formulario-registro.component.scss']
 })
-export class FormularioRegistroComponent implements OnInit{
+export class FormularioRegistroComponent implements OnInit {
+  form: FormGroup;
 
-
-  form:FormGroup;
-
-  constructor(private formBuilder:FormBuilder){
-    this.buildForm();
-  }
-
+  constructor(
+    public carwashService: CarwashService,
+    public router: Router,
+    private formBuilder: FormBuilder
+  ) {this.form = new FormGroup({})}
   ngOnInit(): void {
-  }
+    this.buildForm();
 
-  private buildForm(){
+  }
+  private buildForm() {
     this.form = this.formBuilder.group({
-      name: new FormControl('', [Validators.required, Validators.pattern(/^[A-Za-z\s\xF1\xD1]+$/)]),
-      dni: new FormControl('', [Validators.required, Validators.pattern(/^([0-9])*$/), Validators.minLength(10), Validators.maxLength(10)]),
-      direccion: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      marca: new FormControl('', [Validators.required]),
-      modelo: new FormControl('', [Validators.required]),
-      date: new FormControl('', [Validators.required]),
-      horaIngreso: new FormControl('', [Validators.required, Validators.pattern("^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$")]),
-      empleado: new FormControl('', [Validators.required]),
-      tip_lavado: new FormControl('', Validators.required)
-    })
+      nombre: ['', Validators.required],
+      cedula: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+      direccion: ['', Validators.required],
+      email: ['', [Validators.required, Validators.pattern(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/)]],
+      marcaVehiculo: ['', Validators.required],
+      modeloVehiculo: ['', Validators.required],
+      fechaIngreso: ['', Validators.required],
+      horaIngreso: ['', Validators.required],
+      tipoLavado: ['', Validators.required],
+      recaptcha: ['', Validators.required]
+    });
   }
-
-  
-
-  save(event:Event) {
+  save(event: Event) {
     event.preventDefault();
-    if(this.form.valid){
+    if (this.form.valid) {
       const value = this.form.value;
+      this.insertarRegistro(value);
       console.log(value);
-    }else{
+    } else {
       this.form.markAllAsTouched();
     }
   }
+  async insertarRegistro(formValue: any) {
+    try {
+      const nuevaSolicitud = {
+        nombre_cliente: formValue.nombre,
+        cedula: formValue.cedula,
+        direccion: formValue.direccion,
+        email: formValue.email,
+        marca_vehiculo: formValue.marcaVehiculo,
+        modelo_vehiculo: formValue.modeloVehiculo,
+        fecha_ingreso: formValue.fechaIngreso,
+        hora_ingreso: formValue.horaIngreso,
+        tipo_lavado: formValue.tipoLavado
+      };
 
+      await this.carwashService.insetarRegistro(nuevaSolicitud);
+      console.log("La solicitud ha sido registrada con éxito");
+      this.resetForm();
+      Swal.fire({
+        icon: 'success',
+        title: 'Solicitud ingresada de manera exitosa',
+        showConfirmButton: false,
+        timer: 1500
+      });
+    } catch (error) {
+      console.log("Ocurrió un error", error);
+    }
+  }
 
+  resetForm() {
+    this.form.reset();
+    this.form.markAsPristine();
+    this.form.markAsUntouched();
+  }
 }
+

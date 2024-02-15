@@ -3,37 +3,37 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #fff; 
-  color: #333; 
+  background-color: #fff;
+  color: #333;
   padding: 40px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   font-family: 'Roboto', sans-serif;
-  max-width: 500px; 
-  margin: 0 auto; 
+  max-width: 500px;
+  margin: 0 auto;
   border-radius: 12px;
-  margin-top: 40px; 
+  margin-top: 40px;
   margin-bottom: 40px;
   background: linear-gradient(180deg, #ffffff, #fefefe); /* Degradado entre blanco y blanco hueso */
   color: #333; /* Cambia el color del texto si lo deseas */
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  
+
   .form-title {
     font-size: 24px;
     margin-bottom: 20px;
     text-align: center;
   }
-  
+
   .form-field {
     width: 100%;
     margin-bottom: 20px;
-    
+
     label {
       display: block;
       margin-bottom: 6px;
       font-weight: bold;
     }
-    
+
     input[type="text"],
     input[type="email"],
     input[type="date"],
@@ -48,20 +48,20 @@
       font-size: 16px;
       transition: border-color 0.3s ease;
       border-radius: 8px;
-      
+
       &:focus {
         outline: none;
         border-color: dodgerblue;
         box-shadow: 0 0 6px rgba(0, 0, 255, 0.3);
       }
     }
-    
+
     small {
       color: red;
       font-size: 12px;
     }
   }
-  
+
   button[type="submit"] {
     padding: 12px 24px;
     border: none;
@@ -71,9 +71,22 @@
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    
+
     &:hover {
       background-color: #0056b3;
     }
   }
 }
+
+.captcha-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.text-danger {
+  color: red;
+  font-size: 12px;
+}
+

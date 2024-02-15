@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {CarwashService} from "../../../carwash.service";
 
-
 @Component({
-  selector: 'app-registrados',
-  templateUrl: './registrados.component.html',
-  styleUrls: ['./registrados.component.scss']
+  selector: 'app-detalles-confirmados',
+  templateUrl: './detalles-confirmados.component.html',
+  styleUrls: ['./detalles-confirmados.component.scss']
 })
-export class RegistradosComponent implements OnInit{
+export class DetallesConfirmadosComponent implements OnInit{
 
   public registro: any;
   public _id: string = '';
@@ -52,6 +51,6 @@ export class RegistradosComponent implements OnInit{
   }
 
   regresar(){
-    this.router.navigate(['/admin/pages/registrados'])
+    this.router.navigate(['/admin/pages/confirmados'])
   }
 }
