@@ -48,8 +48,8 @@ describe('HeaderComponent', () => {
   it('should have a user image with correct image inside', () => {
     const userImageElement: HTMLElement = fixture.nativeElement.querySelector('.user-image img');
     expect(userImageElement).toBeTruthy();
-    expect(getComputedStyle(userImageElement).width).toBe('46px'); // Ajuste a 46px
-    expect(getComputedStyle(userImageElement).height).toBe('50px'); // La altura sigue siendo 50px
+    expect(getComputedStyle(userImageElement).width).toBe('46px');
+    expect(getComputedStyle(userImageElement).height).toBe('50px');
     expect(getComputedStyle(userImageElement).borderRadius).toBe('50%');
     expect(getComputedStyle(userImageElement).border).toBe('2px solid rgb(255, 255, 255)');
   });

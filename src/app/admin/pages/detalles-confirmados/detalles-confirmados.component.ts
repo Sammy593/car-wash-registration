@@ -8,6 +8,9 @@ import {CarwashService} from "../../../carwash.service";
   styleUrls: ['./detalles-confirmados.component.scss']
 })
 export class DetallesConfirmadosComponent implements OnInit{
+  userDetail(userDetail: any) {
+    throw new Error('Method not implemented.');
+  }
 
   public registro: any;
   public _id: string = '';
