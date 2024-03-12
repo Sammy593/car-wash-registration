@@ -1,8 +1,53 @@
-<div class="contenedor-estrellas">
-  <h1 class="titulo">Calificación y Carga de Archivos</h1>
-  <h6 class="subtitulo">La opción de cargar el comprobante aparecerá después de que califiques.</h6>
+<h2>Calificación</h2>
+<br>
+<form class="m-auto p-4 bg-light w-75 form-group" [formGroup]="form" (ngSubmit)="enviarFormulario($event)">
+  <p class="form-control">
+    <label>Califica el servicio</label>
+    <!-- inputs button
+    <select formControlName="calificacion" class="form-select w-50">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    -->
 
-  <app-estrella *ngFor="let star of stars; let i = index" [isFilled]="star" (estrellaClicked)="onStarClicked(i)"
-    (archivoCargado)="onArchivoCargado($event)"></app-estrella>
 
-</div>
+    <input type="radio" id="estrella1" formControlName="calificacion" value="1" (change)="calificar()">
+    <label for="estrella1">1</label>
+    <input type="radio" id="estrella2" formControlName="calificacion" value="2" (change)="calificar()">
+    <label for="estrella2">2</label>
+    <input type="radio" id="estrella3" formControlName="calificacion" value="3" (change)="calificar()">
+    <label for="estrella3">3</label>
+    <input type="radio" id="estrella4" formControlName="calificacion" value="4" (change)="calificar()">
+    <label for="estrella4">4</label>
+    <input type="radio" id="estrella5" formControlName="calificacion" value="5" (change)="calificar()">
+    <label for="estrella5">5</label>
+  </p>
+
+  <br><br>
+  <div><p>Para cargar el comrpobante de pago, primero debe calificar el servicio!!!!</p></div>
+
+
+  <div id="mensaje" *ngIf="mostrarMensaje">
+    <p>Gracias por preferirnos!!!</p>
+  </div>
+
+  <div id="subir-archivo" *ngIf="mostrarSubirArchivo">
+    <h2>Subir Archivo</h2>
+    <input type="file" id="archivo" formControlName="archivo" (change)="enviarArchivo($event)">
+  </div>
+
+  <br>
+
+  <div class="row captcha-container">
+    <ngx-recaptcha2 #captchaElem siteKey="6Leuvm4pAAAAAEQsD1LqgS2HFW1Juuf4qNWiuzeZ" formControlName="recaptcha"></ngx-recaptcha2>
+  </div>
+
+  <br><br>
+
+  <div>
+    <button id="enviar" type="submit">Enviar</button>
+  </div>
+</form>
