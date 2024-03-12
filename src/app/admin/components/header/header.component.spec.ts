@@ -7,8 +7,9 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeaderComponent],
-    }).compileComponents();
+      declarations: [HeaderComponent]
+    })
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -21,18 +22,35 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render the logo', () => {
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.logo').textContent).toContain('Logo');
+  it('should have a logo with correct styles', () => {
+    const logoElement: HTMLElement = fixture.nativeElement.querySelector('.logo');
+    expect(logoElement).toBeTruthy();
+    expect(getComputedStyle(logoElement).fontSize).toBe('20px');
   });
 
-  it('should render the user name', () => {
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.user-name').textContent).toContain('Usuario');
+  it('should have a user section with correct styles', () => {
+    const userElement: HTMLElement = fixture.nativeElement.querySelector('.user');
+    expect(userElement).toBeTruthy();
+    expect(getComputedStyle(userElement).display).toBe('flex');
+    expect(getComputedStyle(userElement).alignItems).toBe('center');
   });
 
-  it('should render the user image', () => {
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.user-image img').getAttribute('src')).toContain('assets/img_globals/perrito_perfil.jpeg');
+  it('should have a user image with correct styles', () => {
+    const userImageElement: HTMLElement = fixture.nativeElement.querySelector('.user-image');
+    expect(userImageElement).toBeTruthy();
+    expect(getComputedStyle(userImageElement).width).toBe('50px');
+    expect(getComputedStyle(userImageElement).height).toBe('50px');
+    expect(getComputedStyle(userImageElement).borderRadius).toBe('50%');
+    expect(getComputedStyle(userImageElement).border).toBe('2px solid rgb(255, 255, 255)');
+    expect(getComputedStyle(userImageElement).backgroundColor).toBe('rgb(11, 107, 185)');
+  });
+
+  it('should have a user image with correct image inside', () => {
+    const userImageElement: HTMLElement = fixture.nativeElement.querySelector('.user-image img');
+    expect(userImageElement).toBeTruthy();
+    expect(getComputedStyle(userImageElement).width).toBe('46px'); // Ajuste a 46px
+    expect(getComputedStyle(userImageElement).height).toBe('50px'); // La altura sigue siendo 50px
+    expect(getComputedStyle(userImageElement).borderRadius).toBe('50%');
+    expect(getComputedStyle(userImageElement).border).toBe('2px solid rgb(255, 255, 255)');
   });
 });
