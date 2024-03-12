@@ -22,8 +22,7 @@ export class RegistradosComponent implements OnInit{
   public hora_ingreso: string = '';
   public tipo_lavado: string = '';
   public estado: string = '';
-  public file: string = '';
-  public url: string = "http://localhost:3500/";
+
 
   constructor(public CarwashService: CarwashService,
               public ActivateRoute: ActivatedRoute,
@@ -47,8 +46,7 @@ export class RegistradosComponent implements OnInit{
       this.fecha_ingreso = this.registro.fecha_ingreso;
       this.hora_ingreso = this.registro.hora_ingreso;
       this.tipo_lavado = this.registro.tipo_lavado;
-      this.estado = this.registro.estado;
-      this.file = this.url + this.registro.file;
+
     } catch (error) {
       console.log(error);
     }
