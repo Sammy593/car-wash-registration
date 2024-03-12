@@ -117,9 +117,9 @@ export class CarwashService {
     });
   }
 
-  pagoSolicitud(idSolicitud: string) {
+  rechazarPago(idSolicitud: string) {
     return new Promise(resolve => {
-      this.http.post(this.url + 'solicitud/pagoRegistro', { idSolicitud }).subscribe({
+      this.http.post(this.url + 'solicitud/rechazarPagoAndActualizar', { idSolicitud }).subscribe({
         next: (responseData) => {
           resolve(responseData);
         },

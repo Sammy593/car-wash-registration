@@ -41,7 +41,7 @@ export class AceptadosComponent implements OnInit {
 
   async rechazarSolicitud(idSolicitud: string) {
     try {
-      await this.CarwashService.impagoRegistro(idSolicitud);
+      await this.CarwashService.rechazarPago(idSolicitud);
 
       this.traerRegistrosPendientes();
     } catch (error) {

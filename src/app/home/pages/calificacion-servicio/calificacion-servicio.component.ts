@@ -12,6 +12,7 @@ import {CarwashService} from "../../../carwash.service";
 })
 export class CalificacionServicioComponent implements OnInit{
 
+  imagenCargada: any;
   calificacion: number = 0;
   archivo!: File;
   idSolicitud: string | null = "";
@@ -37,13 +38,10 @@ export class CalificacionServicioComponent implements OnInit{
     this.mostrarSubirArchivo = true;
   }
 
-  /*
 
-      const archivo = event.target.files[0];
-      console.log('Archivo seleccionado:', archivo.name);
-  */
   enviarArchivo(event: any): void {
     this.archivoSeleccionado = true;
+    this.imagenCargada = event.target.files[0];
   }
 
 
@@ -64,7 +62,7 @@ export class CalificacionServicioComponent implements OnInit{
       const formData = new FormData();
       formData.append('idSolicitud', this.idSolicitud);
       formData.append('calificacion', value.calificacion.toString());
-      formData.append('archivo', value.archivo);
+      formData.append('archivo', this.imagenCargada, this.imagenCargada.name);
 
       console.log(formData);
 
