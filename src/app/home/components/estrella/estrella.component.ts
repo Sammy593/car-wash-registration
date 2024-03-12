@@ -29,6 +29,6 @@ export class EstrellaComponent {
     if (this.isFilled && this.cargaDocumentosMostrada) {
     this.enviarCalificacionEvent.emit();
   }
-  
+
 }
 }
