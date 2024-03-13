@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormularioRegistroComponent } from './formulario-registro.component';
 import {NgxCaptchaModule} from "ngx-captcha";
 
-fdescribe('FormularioRegistroComponent', () => {
+describe('FormularioRegistroComponent', () => {
   let component: FormularioRegistroComponent;
   let fixture: ComponentFixture<FormularioRegistroComponent>;
 
