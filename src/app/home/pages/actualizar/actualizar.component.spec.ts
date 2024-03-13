@@ -57,4 +57,17 @@ describe('ActualizarComponent', () => {
   });
 
   // Add more test cases as needed to cover all functionalities
+  it('should display error message when nombre_cliente is empty', () => {
+    component.nombre_cliente = '';
+    fixture.detectChanges();
+    const errorMessage = fixture.nativeElement.querySelector('small');
+    expect(errorMessage.textContent).toContain('El nombre es requerido');
+  });
+  
+
+  
+ 
+  
+  // Agrega pruebas adicionales para verificar el comportamiento del método actualizarRegistro()
+      
 });
