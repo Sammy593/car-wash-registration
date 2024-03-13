@@ -37,7 +37,7 @@ describe('SideNavComponent', () => {
 
   it('should render the registrados label', () => {
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.nav-item:nth-child(2) p').textContent).toContain('Pendientes');
+    expect(compiled.querySelector('.nav-item:nth-child(1) p').textContent).toContain('Registrados');
   });
 
   it('should render the confirmados link', () => {
@@ -46,12 +46,12 @@ describe('SideNavComponent', () => {
   });
 
   it('should render the confirmados icon' ,async  () => {
-    const icon = fixture.debugElement.query(By.css('.nav-item:nth-child(1) fa-icon'));
+    const icon = fixture.debugElement.query(By.css('.nav-item:nth-child(2) fa-icon'));
     expect(icon).toBeTruthy();
   });
 
   it('should render the confirmados label', () => {
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.nav-item:nth-child(3) p').textContent).toContain('Aceptados');
+    expect(compiled.querySelector('.nav-item:nth-child(2) p').textContent).toContain('Registros Aceptados');
   });
 });
