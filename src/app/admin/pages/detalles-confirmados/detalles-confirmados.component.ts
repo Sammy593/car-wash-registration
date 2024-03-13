@@ -25,7 +25,7 @@ export class DetallesConfirmadosComponent implements OnInit{
   public tipo_lavado: string = '';
   public estado: string = '';
   public file: string = '';
-  public url: string = "http://localhost:3500/";
+  public url: string = "http://52.5.117.69:3500/";
 
 
 
