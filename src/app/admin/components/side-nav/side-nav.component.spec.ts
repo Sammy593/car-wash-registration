@@ -25,6 +25,22 @@ describe('SideNavComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should render the dashboard link', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('[routerLink="pages/dashboard"]')).toBeTruthy();
+  });
+
+  it('should render the dashboard icon', async () => {
+    // Improved selector based on actual element structure
+    const icon = fixture.debugElement.query(By.css('.nav-item:nth-child(1) fa-icon'));
+    expect(icon).toBeTruthy();
+  });
+
+  it('should render the dashboard label', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.nav-item:nth-child(1) p').textContent).toContain('Dashboard');
+  });
+
   it('should render the registrados link', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('[routerLink="pages/registrados"]')).toBeTruthy();
@@ -37,7 +53,10 @@ describe('SideNavComponent', () => {
 
   it('should render the registrados label', () => {
     const compiled = fixture.nativeElement;
+
     expect(compiled.querySelector('.nav-item:nth-child(1) p').textContent).toContain('Registrados');
+
+
   });
 
   it('should render the confirmados link', () => {

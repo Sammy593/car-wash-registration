@@ -54,20 +54,20 @@ export class CalificacionServicioComponent implements OnInit{
   // Método para enviar el formulario
   enviarFormulario(event: any): void {
     event.preventDefault();
-    
+  
     if (this.puedeEnviar() && this.idSolicitud != null && this.imagenCargada) { // Verifica que this.imagenCargada no sea undefined
       const value = this.form.value;
-    
+  
       const formData = new FormData();
       formData.append('idSolicitud', this.idSolicitud);
       formData.append('calificacion', value.calificacion.toString());
-    
+  
       // Verifica que this.imagenCargada no sea undefined antes de acceder a su propiedad name
       if (this.imagenCargada && this.imagenCargada.name) {
         formData.append('archivo', this.imagenCargada, this.imagenCargada.name);
-    
+  
         console.log(formData);
-    
+  
         this.carwashService.actualizarPagoSolicitud(formData).subscribe(
           (response) => {
             console.log(response);
@@ -80,7 +80,7 @@ export class CalificacionServicioComponent implements OnInit{
           },
           (error) => {
             console.error(error);
-          });
+          })
       } else {
         console.error('La imagen cargada es undefined o no tiene una propiedad "name".');
       }
