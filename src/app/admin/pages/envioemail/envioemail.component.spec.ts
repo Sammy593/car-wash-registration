@@ -1,21 +1,28 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { EnvioemailComponent } from './envioemail.component';
-import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientModule
-
+import { CarwashService } from '../../../carwash.service';
+import { of } from 'rxjs';
 
 describe('EnvioemailComponent', () => {
   let component: EnvioemailComponent;
   let fixture: ComponentFixture<EnvioemailComponent>;
+  let carwashServiceSpy: jasmine.SpyObj<CarwashService>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ EnvioemailComponent ],
-      imports: [HttpClientModule]
-    })
-    .compileComponents();
-  });
+    const spy = jasmine.createSpyObj('CarwashService', ['getEstadoPendiente', 'rechazarSolicitud', 'impagoSolicitud']);
+    const mockRecords = [{ _id: 1, nombre_cliente: 'John Doe', estado: 'Pendiente' }];
 
-  beforeEach(() => {
+    await TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
+      declarations: [EnvioemailComponent],
+      providers: [{ provide: CarwashService, useValue: spy }]
+    }).compileComponents();
+
+    carwashServiceSpy = TestBed.inject(CarwashService) as jasmine.SpyObj<CarwashService>;
+    carwashServiceSpy.getEstadoPendiente.and.returnValue(Promise.resolve(mockRecords));
+    carwashServiceSpy.rechazarSolicitud.and.returnValue(Promise.resolve({}));
+    carwashServiceSpy.impagoSolicitud.and.returnValue(Promise.resolve({}));
     fixture = TestBed.createComponent(EnvioemailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -25,29 +32,37 @@ describe('EnvioemailComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should redirect when redirectToMostrarDetalle is called', () => {
-    const spy = spyOn(component, 'redirectToMostrarDetalle');
-    const id = 123; // Assuming ID is a number
-    component.redirectToMostrarDetalle(id);
-    expect(spy).toHaveBeenCalledWith(id);
+  it('should fetch pending records on initialization', () => {
+    expect(component.registros).toEqual([{ _id: 1, nombre_cliente: 'John Doe', estado: 'Pendiente' }]);
+    expect(carwashServiceSpy.getEstadoPendiente).toHaveBeenCalled();
   });
 
-  it('should call impagoSolicitud when impagoSolicitud is called', () => {
-    const spy = spyOn(component, 'impagoSolicitud');
-    const id = 456; // Assuming ID is a number
-    component.impagoSolicitud(id.toString()); // Convert id to string
-    expect(spy).toHaveBeenCalledWith(id.toString());
-});
+  it('should redirect to show details page', () => {
+    const navigateSpy = spyOn(component.router, 'navigate');
+    const id = 1;
 
-it('should call rechazarSolicitud when rechazarSolicitud is called', () => {
-    const spy = spyOn(component, 'rechazarSolicitud');
-    const id = 789; // Assuming ID is a number
-    component.rechazarSolicitud(id.toString()); // Convert id to string
-    expect(spy).toHaveBeenCalledWith(id.toString());
-});
+    component.redirectToMostrarDetalle(id);
 
+    expect(navigateSpy).toHaveBeenCalledWith(['admin/pages/verDetalles', { _id: id }]);
+  });
 
+  it('should reject a pending request', async () => {
+    const id = '1';
+    const consoleSpy = spyOn(console, 'log');
 
+    await component.rechazarSolicitud(id);
 
-  // You can add more test cases based on your component's logic
+    expect(consoleSpy).toHaveBeenCalledWith('Solicitud rechazada correctamente');
+    expect(carwashServiceSpy.rechazarSolicitud).toHaveBeenCalledWith(id);
+  });
+
+  it('should accept a pending request', async () => {
+    const id = '1';
+    const consoleSpy = spyOn(console, 'log');
+
+    await component.impagoSolicitud(id);
+
+    expect(consoleSpy).toHaveBeenCalledWith('Solicitud aceptada correctamente');
+    expect(carwashServiceSpy.impagoSolicitud).toHaveBeenCalledWith(id);
+  });
 });
