@@ -1,8 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { LayoutComponent } from './components/layout/layout.component';
 import { RegistradosComponent } from './pages/registrados/registrados.component';
@@ -27,7 +28,8 @@ describe('adminModule', () => {
                 BrowserModule,
                 FormsModule,
                 FontAwesomeModule,
-                RouterTestingModule.withRoutes([]),
+                HttpClientTestingModule,
+                RouterTestingModule, // Agrega RouterTestingModule aquí
                 QrgeneratorRoutingModule
             ]
         }).compileComponents();
