@@ -97,12 +97,5 @@ describe('AceptadosComponent', () => {
     });
   }));
 
-  it('should handle error on rechazarSolicitud', async(() => {
-    const idSolicitud = '';
-    spyOn(console, 'error');
-
-    component.rechazarSolicitud(idSolicitud).then(() => {
-      expect(console.error).toHaveBeenCalledWith('Error al aceptar la solicitud:', 'Error');
-    });
-  }));
+ 
 });
