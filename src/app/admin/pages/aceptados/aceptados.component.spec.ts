@@ -66,10 +66,9 @@ describe('AceptadosComponent', () => {
 
   it('should call carwashService.aceptarSolicitud and traerRegistrosPendientes on aceptarSolicitud', async(() => {
     const idSolicitud = '1';
-    spyOn(component, 'traerRegistrosPendientes');
-    spyOn(console, 'log');
-
     spyOn(carwashService, 'aceptarSolicitud').and.returnValue(Promise.resolve());
+    spyOn(console, 'log');
+    spyOn(component, 'traerRegistrosPendientes');
 
     component.aceptarSolicitud(idSolicitud).then(() => {
       expect(console.log).toHaveBeenCalledWith('Solicitud aceptada correctamente');
@@ -90,9 +89,8 @@ describe('AceptadosComponent', () => {
 
   it('should call carwashService.impagoRegistro and traerRegistrosPendientes on rechazarSolicitud', async(() => {
     const idSolicitud = '1';
+    spyOn(carwashService, 'rechazarPago').and.returnValue(Promise.resolve());
     spyOn(component, 'traerRegistrosPendientes');
-
-    spyOn(carwashService, 'impagoRegistro').and.returnValue(Promise.resolve());
 
     component.rechazarSolicitud(idSolicitud).then(() => {
       expect(component.traerRegistrosPendientes).toHaveBeenCalled();
@@ -100,14 +98,11 @@ describe('AceptadosComponent', () => {
   }));
 
   it('should handle error on rechazarSolicitud', async(() => {
-    const idSolicitud = '1';
+    const idSolicitud = '';
     spyOn(console, 'error');
-
-    spyOn(carwashService, 'impagoRegistro').and.returnValue(Promise.reject('Error'));
 
     component.rechazarSolicitud(idSolicitud).then(() => {
       expect(console.error).toHaveBeenCalledWith('Error al aceptar la solicitud:', 'Error');
     });
   }));
 });
-
