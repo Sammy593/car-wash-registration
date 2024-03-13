@@ -10,7 +10,17 @@ import {CarwashService} from "../../../carwash.service";
   styleUrls: ['./formulario-registro.component.scss']
 })
 export class FormularioRegistroComponent implements OnInit {
+  submitted(submitted: any) {
+    throw new Error('Method not implemented.');
+  }
+  registerUser(registerUser: any) {
+    throw new Error('Method not implemented.');
+  }
+  onSubmit() {
+    throw new Error('Method not implemented.');
+  }
   form: FormGroup;
+  registerForm: any;
 
   constructor(
     public carwashService: CarwashService,
