@@ -24,7 +24,7 @@ export class CalificacionServicioComponent implements OnInit{
 
   constructor(private formBuilder: FormBuilder, private carwashService: CarwashService, private route: ActivatedRoute) {
     this.form = this.formBuilder.group({
-      recaptcha: ['', Validators.required],
+      //recaptcha: ['', Validators.required],
       calificacion: ['', Validators.required],
       archivo: ['', Validators.required]
     });
@@ -54,32 +54,37 @@ export class CalificacionServicioComponent implements OnInit{
   // Método para enviar el formulario
   enviarFormulario(event: any): void {
     event.preventDefault();
-
-    if (this.puedeEnviar() && this.idSolicitud != null) {
-
+  
+    if (this.puedeEnviar() && this.idSolicitud != null && this.imagenCargada) { // Verifica que this.imagenCargada no sea undefined
       const value = this.form.value;
-
+  
       const formData = new FormData();
       formData.append('idSolicitud', this.idSolicitud);
       formData.append('calificacion', value.calificacion.toString());
-      formData.append('archivo', this.imagenCargada, this.imagenCargada.name);
-
-      console.log(formData);
-
-      this.carwashService.actualizarPagoSolicitud(formData).subscribe(
-        (response) => {
-          console.log(response);
-          Swal.fire({
-            icon: 'success',
-            title: 'Registro completo',
-            showConfirmButton: false,
-            timer: 1500
-          });
-        },
-        (error) => {
-          console.error(error);
-        })
-    }else{
+  
+      // Verifica que this.imagenCargada no sea undefined antes de acceder a su propiedad name
+      if (this.imagenCargada && this.imagenCargada.name) {
+        formData.append('archivo', this.imagenCargada, this.imagenCargada.name);
+  
+        console.log(formData);
+  
+        this.carwashService.actualizarPagoSolicitud(formData).subscribe(
+          (response) => {
+            console.log(response);
+            Swal.fire({
+              icon: 'success',
+              title: 'Registro completo',
+              showConfirmButton: false,
+              timer: 1500
+            });
+          },
+          (error) => {
+            console.error(error);
+          })
+      } else {
+        console.error('La imagen cargada es undefined o no tiene una propiedad "name".');
+      }
+    } else {
       this.form.markAllAsTouched();
       console.log("Error");
       Swal.fire({
@@ -90,7 +95,4 @@ export class CalificacionServicioComponent implements OnInit{
       });
     }
   }
-
-
-}
-
+}  

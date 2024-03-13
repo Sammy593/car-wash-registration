@@ -79,4 +79,3 @@ export class FormularioRegistroComponent implements OnInit {
     this.form.markAsUntouched();
   }
 }
-
